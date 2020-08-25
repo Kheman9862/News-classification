@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+<style>
+
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body {
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Open sans', "serif";
+        }
+
+.home {
+
+
+font-size:25pt;
+
+padding: 10px;
+float:left;
+text-decoration: none;
+color: antiquewhite;
+
+
+}
+.navBar{
+    
+    margin:0;
+    width: 100%;
+    height: 100px;
+    
+    
+}
+.header{
+    padding: 5px;
+    border: 1px solid hidden;
+    font-size: 50px;
+    background: #1a2a6c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+    text-align: center;
+    
+
+}
+
+.container{
+    width: 80%;
+    height: fit-content;
+    margin: 30px auto;
+    /* border: 0.5px solid black; */
+    padding: 25px;
+    box-shadow: 0px 5px 5px rgba(0,0,0, 0.5);
+    position: relative;
+    
+    
+}
+.container h1{
+   font-weight: bold;
+   margin-bottom: 10px;
+   color: #f12711;
+   font-size: 40px;
+  
+}
+a{
+    display:block;
+    width: fit-content;
+    color: black;
+    
+    
+}
+.accuracy{
+    color:green;
+    
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 80px;
+    font-weight: bold;
+}
+.accuracy span{
+    font-size: 15px;
+}
+</style>
+</head>
+<body >
+    <div class="navBar">
+        <a class="home" href="{{ url_for('home')}}">Home</a>
+		<h1 class="header">News Classifier</h1>
+    </div>
+    <div class="container">
+        <h1>Prediction</h1>
+        <h2> The Predicted Category for " {{ data }} " is Health and Sciences News</h2>
+        <h2 class="accuracy"><span><p>Accuracy</p></span>{{ acc*100 }} %</h2>
+    </div>
+    
+    <div class="container">
+            <h1> Health and Sciences News </h1>
+            <h2> For the latest news about Health and Sciences go to: </h2>
+
+            <a href= "https://undark.org" target="_blank"><h2> Undark </h2>   </a>
+
+
+
+
+            <a href="https://www.nature.com/" target="_blank"> <h2> Nature </h2></a>
+
+
+
+            <a href="http://nautil.us/"><h2> Nautilis </h2> </a>
+
+
+            <a href= "https://www.quantamagazine.org/"><h2>Quanta Magazine </h2>  </a>
+
+
+
+            <a href= "https://massivesci.com/"> <h2> Massive Science </h2>
+            </a>
+            
+    </div>
+ </body>
+ </html>
+
+

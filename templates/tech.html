@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        -webkit-background-size: cover;
+
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", sans-serif;
+      }
+      h1 {
+        color: black;
+      }
+      h2 {
+        color: black;
+      }
+      h2 {
+        font-weight: bold;
+      }
+
+      .home {
+        font-size: 25pt;
+
+        padding: 10px;
+        float: left;
+        text-decoration: none;
+        color: antiquewhite;
+      }
+
+      .navBar {
+        margin: 0;
+        width: 100%;
+        height: 100px;
+      }
+      .header {
+        padding: 5px;
+        border: 1px solid hidden;
+        font-size: 50px;
+        background: #6441A5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2a0845, #6441A5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2a0845, #6441A5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+        text-align: center;
+      }
+
+      .container {
+        width: 80%;
+        height: fit-content;
+        margin: 30px auto;
+        /* border: 0.5px solid black; */
+        padding: 25px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+        position: relative;
+      }
+      .container h1 {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #000046;
+        font-size: 40px;
+      }
+      a {
+        display: block;
+        width: fit-content;
+      }
+      .accuracy{
+            color:green;
+            
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 80px;
+            font-weight: bold;
+        }
+        .accuracy span{
+            font-size: 15px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="navBar">
+      <a class="home" href="{{ url_for('home')}}">Home</a>
+      <h1 class="header">News Classifier</h1>
+    </div>
+    <div class="container">
+      <h1>Prediction</h1>
+      <h2>The Predicted Category for " {{ data }} " is Technology</h2>
+      <h2 class="accuracy">
+        <span><p>Accuracy:</p></span>{{ acc*100 }} %
+      </h2>
+    </div>
+    <div class="container">
+      <h1>Technology News</h1>
+      <h2>For the latest news about Technology go to:</h2>
+
+      <a href="https://techcrunch.com/" target="_blank"><h2>TechCrunch</h2> </a>
+
+      <a href="https://www.wired.com/" target="_blank"> <h2>Wired</h2></a>
+
+      <a href="https://www.firstpost.com/tech" target="_blank"
+        ><h2>Techno</h2>
+      </a>
+
+      <a href="https://mashable.com" target="_blank"><h2>Mashable</h2> </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Catamaran&display=swap" rel="stylesheet">
+</head>
+<style>
+    	
+		*{ 
+			margin: 0; padding: 0; 
+		}
+
+
+    	body 
+		{
+			margin: 0;
+			padding: 0;
+			/* background: url('static/bg3.jpeg') no-repeat center center fixed; */
+			font-family: 'Open Sans', sans-serif;
+			
+			
+    	}
+		.ml-container {
+			margin-top: 100px;
+			display: flex;
+			justify-content: center;
+		}
+
+		.navBar{
+			
+			margin:0;
+			width: 100%;
+			height: 100px;
+			
+			
+		}
+		.home {
+
+
+		font-size:30pt;
+
+		padding: 10px;
+		float:left;
+		text-decoration: none;
+		color: antiquewhite;
+		font-family: 'Catamaran', sans-serif;
+
+
+		}
+		.home .C{
+			margin: -4px;
+			padding-left: -6px;
+		}
+		.header{
+			padding: 5px;
+			border: 1px solid hidden;
+			font-size: 50px;
+			background: #000046;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+			color: white;
+			text-align: center;
+			 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+			/* color: #fff;
+			text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;*/
+			
+			
+
+		}
+		
+		h2
+		{
+			font-size: 40px;
+			text-align: center;
+			/* color: #fff;
+			text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ff0080, 0 0 30px #ff0080, 0 0 40px #ff0080, 0 0 55px #ff0080, 0 0 75px #ff0080;
+			 */
+
+		}
+		input[type=text]
+		{
+			width: 80%;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+			background-color: white;
+			border: 4px solid #f1843a;
+			
+			padding: 12px 20px 12px 40px;
+		}
+		.searchbutton{
+			
+			padding: 9px;
+			width: 120px;
+			border-radius: 5px;
+			background: #1a2a6c;  /* fallback for old browsers */
+			 /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+			color: white;
+			border-radius: 5px;
+			font-size: 20px;
+			
+			border: 4px solid #f1843a;
+
+			
+		}
+		.searchbutton:hover{
+			background: #009FFF;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #ec2F4B, #009FFF);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to left, #ec2F4B, #009FFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+			
+
+		}
+
+		.header2{
+			margin: 20px auto;
+		}
+		
+
+		.category
+		{
+			position: relative;
+			width: 85%;
+			margin:  30px auto;
+			list-style: none;
+			display: flex;
+			
+
+			
+		}
+		.category h2 li{
+
+			
+			float: left;
+			position: relative;
+			left: 100px;
+			margin: 5px;
+			width: 20%;
+			height: 120px;
+			font-size: 80px;
+			overflow: hidden;
+
+
+			
+			
+
+		}
+		.category h2 .lower{
+
+		
+			float: left;
+			position: relative;
+			left: 250px;
+			margin: 5px;
+			width: 18%;
+			height: 120px;
+
+		}
+		.sports{ color: white;background-image: url("static/sports.jpg") ;  background-size: cover; opacity: 1; transition: 1s;} 
+		.business{color: white;background-image: url("static/business.jpg");  background-size: cover;opacity: 1}
+		.health{background-image: url("static/sciences1.png");  background-size: cover;opacity: 1}
+		.politics{background-image: url("static/pol.jpg"); background-size: cover;opacity: 1}
+		.entertainment{color: white;background-image: url("static/tv.jpg"); background-size: cover;opacity: 1}
+		.tech{color: white;background-image: url("static/tech.jpeg");  background-size: cover;opacity: 1}
+		.intern{color:white;background-image: url("static/int.jpg"); background-size: cover;opacity: 1}
+
+		.sports:hover,.business:hover,.health:hover,.politics:hover,.tech:hover,.intern:hover,.entertainment:hover{
+			opacity: 1;
+			transform: scale(1.1);
+			
+		}
+		
+
+</style>
+
+<body>
+
+
+	<div class="navBar">
+		<h1 class="home"><span class="N">N</span><span class="C">C</span></h1>
+		<h1 class="header">News Classifier</h1>
+	</div>
+	
+
+	
+	<div class="ml-container" style="text-align:center">
+
+		<form action="{{ url_for('predict')}}" method="POST">
+			<!-- <h2>Enter the news headline to predict the category...</h2> -->
+
+			<input type="text" name="message" rows="4" cols="50" placeholder="Enter The News Headline.."></input>
+			
+
+			<input class="searchbutton" type="submit" class="btn-info" value="Predict" align="center">
+			<h2 class="header2"> Avaialable Categories to predict:</h2>
+			<ul class="category"> 
+				<h2>
+					<li class="sports">Sports</li>
+					<li class="politics">Politics</li>
+					<li class="entertainment">Entertainment</li>
+					<li class="intern">International</li>
+					<li class="lower tech">Technology</li>
+					<li class="lower business">Business</li>
+					<li class="lower health">Health and Sciences</li>
+				
+				</h2>
+			</ul>
+		</form>
+
+	</div>
+
+
+
+</body>
+</html>
